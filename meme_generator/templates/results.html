@@ -1,0 +1,21 @@
+<!-- templates/results.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Results</h2>
+
+<div>
+    {% if images %}
+        <h3>Generated Images</h3>
+        {% for image in images %}
+            <img src="data:image/png;base64,{{ image }}" alt="Generated Image">
+        {% endfor %}
+    {% elif message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <p>No results available.</p>
+    {% endif %}
+</div>
+
+<a href="{{ url_for('index') }}">Go Back</a>
+{% endblock %}

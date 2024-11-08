@@ -1,0 +1,38 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h2>Generate Image</h2>
+    <form id="generate-form" method="POST" action="{{ url_for('generate.generate') }}">
+        <label for="prompt">Prompt:</label>
+        <input type="text" name="prompt" id="prompt" required>
+        <label for="batch_size">Batch Size:</label>
+        <input type="number" name="batch_size" id="batch_size" value="1" min="1">
+        <button type="submit">Generate</button>
+    </form>
+</div>
+
+<hr>
+
+<div>
+    <h2>Upload Image for Fine-Tuning</h2>
+    <form id="upload-form" method="POST" enctype="multipart/form-data" action="{{ url_for('upload.upload') }}">
+        <label for="file">Select Image:</label>
+        <input type="file" name="file" id="file" accept="image/*" required>
+        <label for="prompt">Prompt:</label>
+        <input type="text" name="prompt" id="upload-prompt">
+        <button type="submit">Upload</button>
+    </form>
+</div>
+
+<hr>
+
+<div>
+    <h2>Fine-Tune Model</h2>
+    <form id="fine-tune-form" method="POST" action="{{ url_for('fine_tune.fine_tune') }}">
+        <button type="submit">Start Fine-Tuning</button>
+    </form>
+</div>
+
+{% endblock %}

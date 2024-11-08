@@ -1,0 +1,7 @@
+Flask==2.2.2
+Flask-SQLAlchemy==2.5.1
+gunicorn==20.1.0        # Optional: For production servers like Heroku
+transformers==4.30.0
+diffusers==0.12.1
+Pillow==9.2.0
+python-dotenv==0.21.0 
